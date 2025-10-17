@@ -1,20 +1,140 @@
-/* style.css */
-
-/* Sima átmenet a színek váltásához (Világos/Sötét mód) */
-body, .card, .navbar, .footer {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+:root {
+    --bs-purple: #6f42c1;
 }
 
-/* Bootstrap lila szín a logóhoz */
 .text-purple {
-    color: #7952B3 !important; /* Bootstrap lila */
+    color: var(--bs-purple) !important;
 }
 
-/* Finomhangolás sötét módban */
-[data-bs-theme="dark"] .text-secondary {
-    color: #b0b0b0 !important;
+.bg-purple {
+    background-color: var(--bs-purple) !important;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+.network-traffic {
+    font-size: 0.85rem;
+}
+
+.traffic-up {
+    color: #28a745;
+}
+
+.traffic-down {
+    color: #007bff;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.status-up {
+    background-color: #28a745;
+}
+
+.status-down {
+    background-color: #dc3545;
+}
+
+.status-unknown {
+    background-color: #6c757d;
+}
+
+.auto-refresh-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .auto-refresh-btn {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Egyedi animációk */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Progress bar színek dinamikusan */
+.progress-bar.bg-success {
+    background: linear-gradient(90deg, #28a745, #20c997) !important;
+}
+
+.progress-bar.bg-warning {
+    background: linear-gradient(90deg, #ffc107, #fd7e14) !important;
+}
+
+.progress-bar.bg-danger {
+    background: linear-gradient(90deg, #dc3545, #e83e8c) !important;
+}
+
+.progress-bar.bg-info {
+    background: linear-gradient(90deg, #17a2b8, #6f42c1) !important;
+}
+
+/* Kártya fejlécek */
+.card-header {
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+/* Reszponzív táblázatok */
+.table-responsive-custom {
+    overflow-x: auto;
+}
+
+/* Egyedi gombok */
+.btn-custom {
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+/* Dark mode támogatás */
+[data-bs-theme="dark"] .card {
+    background-color: #2d3748;
+    border-color: #4a5568;
+}
+
+[data-bs-theme="dark"] .card-header {
+    border-bottom-color: #4a5568;
 }
 
 [data-bs-theme="dark"] .text-muted {
-    color: #aaaaaa !important;
+    color: #a0aec0 !important;
+}
+
+[data-bs-theme="dark"] .bg-body-tertiary {
+    background-color: #1a202c !important;
 }
